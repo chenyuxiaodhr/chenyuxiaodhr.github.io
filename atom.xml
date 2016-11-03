@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chenyuxiaodhr.github.io/"/>
-  <updated>2016-03-18T17:13:02.000Z</updated>
+  <updated>2016-11-03T14:36:56.000Z</updated>
   <id>http://chenyuxiaodhr.github.io/</id>
   
   <author>
@@ -16,13 +16,56 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Unity脚本修改prefab</title>
+    <link href="http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Modify-Prefabs-by-Scripts/"/>
+    <id>http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Modify-Prefabs-by-Scripts/</id>
+    <published>2016-11-03T14:17:16.000Z</published>
+    <updated>2016-11-03T14:36:56.000Z</updated>
+    
+    <content type="html">&lt;p&gt;获取prefab&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;GameObject go = AssetDatabase.LoadAssetAtPath(filePath, &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt;(GameObject)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; GameObject;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;对GameObject修改属性就可以了。&lt;/p&gt;
+&lt;p&gt;最后一定要加上&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;EditorUtility.SetDirty(go);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;否则修改后的prefab无法保存。&lt;/p&gt;
+&lt;h2 id=&quot;拓展知识&quot;&gt;&lt;a href=&quot;#拓展知识&quot; class=&quot;headerlink&quot; title=&quot;拓展知识&quot;&gt;&lt;/a&gt;拓展知识&lt;/h2&gt;&lt;p&gt;&lt;code&gt;EditorUtility.SetDirty&lt;/code&gt;在Unity5.3之前是标记对象&lt;strong&gt;被修改（Dirty）&lt;/strong&gt;的主要方法。但从5.3开始，随着多场景编辑（Multi-Scene Editing）的引入，此函数不应再用于修改场景中的对象。&lt;/p&gt;
+&lt;p&gt; 相反，您应该在对对象进行更改之前使用&lt;code&gt;Undo.RecordObject&lt;/code&gt;。 这将标记对象的场景被修改了，并在编辑器中提供一个&lt;strong&gt;可撤销条目（undo entry）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;如果您正在修改场景中的文件，并且&lt;strong&gt;不想&lt;/strong&gt;为修改添加可撤销条目，则应使用&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;EditorSceneManager.MarkSceneDirty&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;如果使用自定义编辑器修改组件或资产上的序列化属性，则应使用&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;pSerializedObject.FindProperty]&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SerializedObject.Update&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;EditorGUILayout.PropertyField&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;SerializedObject.ApplyModifiedProperties&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;这将标记修改的对象为“Dirty”（被修改），并为您创建&lt;strong&gt;可撤消状态（Undo states）&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;因此，您应该使用此功能的唯一剩余情况是，如果您通过某些其他方式修改非场景对象，并且特别&lt;strong&gt;不希望&lt;/strong&gt;为您的修改创建一个可撤销条目。 这是罕见的，除非你非常确定要求这，你可能不应该使用这个命令！&lt;/p&gt;
+&lt;p&gt;Unity内部使用&lt;strong&gt;“Dirty”&lt;/strong&gt;标志来确定资产何时更改并需要保存到磁盘。&lt;/p&gt;
+&lt;p&gt;以上内容翻译自Unity文档：&lt;a href=&quot;https://docs.unity3d.com/ScriptReference/EditorUtility.SetDirty.html&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;EditorUtility.SetDirty&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;小结&quot;&gt;&lt;a href=&quot;#小结&quot; class=&quot;headerlink&quot; title=&quot;小结&quot;&gt;&lt;/a&gt;小结&lt;/h2&gt;&lt;p&gt;从上面的文档可以得出一个简单的结论：&lt;code&gt;EditorUtility.SetDirty&lt;/code&gt;可以标记脚本作出的修改，但是不能让你撤销这些修改；&lt;code&gt;Undo.RecordObject&lt;/code&gt;标记的修改可以被撤销，但不能修改非场景对象。&lt;/p&gt;
+&lt;p&gt;至于到底选择哪个方法去标记修改，就看具体的需求了。&lt;/p&gt;
+</content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;获取prefab&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;
+    
+    </summary>
+    
+      <category term="Unity3D" scheme="http://chenyuxiaodhr.github.io/categories/Unity3D/"/>
+    
+    
+      <category term="Game Development" scheme="http://chenyuxiaodhr.github.io/tags/Game-Development/"/>
+    
+      <category term="Unity3D" scheme="http://chenyuxiaodhr.github.io/tags/Unity3D/"/>
+    
+  </entry>
+  
+  <entry>
     <title>游戏开发之状态机的实现与优化</title>
     <link href="http://chenyuxiaodhr.github.io/zh-CN/Game-Development/Finite-State-Machine-in-Game-Development/"/>
     <id>http://chenyuxiaodhr.github.io/zh-CN/Game-Development/Finite-State-Machine-in-Game-Development/</id>
     <published>2016-03-15T13:46:53.000Z</published>
-    <updated>2016-03-18T17:13:02.000Z</updated>
+    <updated>2016-11-03T14:37:11.000Z</updated>
     
-    <content type="html">&lt;h1 id=&quot;游戏开发之状态机的实现与优化&quot;&gt;&lt;a href=&quot;#游戏开发之状态机的实现与优化&quot; class=&quot;headerlink&quot; title=&quot;游戏开发之状态机的实现与优化&quot;&gt;&lt;/a&gt;游戏开发之状态机的实现与优化&lt;/h1&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG游戏挂机AI的实现为案例，讲述状态机的概念及其写法。&lt;/p&gt;
+    <content type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG游戏挂机AI的实现为案例，讲述状态机的概念及其写法。&lt;/p&gt;
 &lt;p&gt;本文分为以下部分：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;有限状态机（finite-state machine）&lt;/strong&gt;：对状态机一些概念的解释。&lt;/li&gt;
@@ -169,7 +212,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;游戏开发之状态机的实现与优化&quot;&gt;&lt;a href=&quot;#游戏开发之状态机的实现与优化&quot; class=&quot;headerlink&quot; title=&quot;游戏开发之状态机的实现与优化&quot;&gt;&lt;/a&gt;游戏开发之状态机的实现与优化&lt;/h1&gt;&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot;
+      &lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG
     
     </summary>
     
