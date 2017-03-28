@@ -425,9 +425,9 @@
     <link href="http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Bug-When-Read-Bundle-With-ToLua/"/>
     <id>http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Bug-When-Read-Bundle-With-ToLua/</id>
     <published>2017-01-06T07:44:54.000Z</published>
-    <updated>2017-01-06T08:47:13.000Z</updated>
+    <updated>2017-03-28T08:47:47.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;问题简述&quot;&gt;&lt;a href=&quot;#问题简述&quot; class=&quot;headerlink&quot; title=&quot;问题简述&quot;&gt;&lt;/a&gt;问题简述&lt;/h2&gt;&lt;p&gt;在使用ToLua的LuaFramework作为代码热更框架，进行AssetBundle打包的时候，有时会莫名其妙出现Lua文件读不出来的问题，即require了某个Lua文件，且文件确实存在，却报出该文件的全局变量为nil的error。&lt;/p&gt;
+    <content type="html">&lt;p&gt;在使用ToLua的LuaFramework作为代码热更框架，进行AssetBundle打包的时候，有时会莫名其妙出现Lua文件读不出来的问题，即require了某个Lua文件，且文件确实存在，却报出该文件的全局变量为nil的error。&lt;/p&gt;
 &lt;h2 id=&quot;问题分析&quot;&gt;&lt;a href=&quot;#问题分析&quot; class=&quot;headerlink&quot; title=&quot;问题分析&quot;&gt;&lt;/a&gt;问题分析&lt;/h2&gt;&lt;p&gt;经过仔细的查看和debug，发现是&lt;strong&gt;同一个文件夹&lt;/strong&gt;下存在两个Lua文件的文件名发生了尾部包含的关系，例如文件&lt;code&gt;b.lua&lt;/code&gt;和&lt;code&gt;aaaaaab.lua&lt;/code&gt;，当require文件&lt;code&gt;b.lua&lt;/code&gt;时，实际获取出来的却是&lt;code&gt;aaaaaab.lua&lt;/code&gt;。&lt;/p&gt;
 &lt;h2 id=&quot;原因所在&quot;&gt;&lt;a href=&quot;#原因所在&quot; class=&quot;headerlink&quot; title=&quot;原因所在&quot;&gt;&lt;/a&gt;原因所在&lt;/h2&gt;&lt;p&gt;发现了这个问题之后（鬼知道我经历了什么才查出来……），就去翻了一下LuaFramework的代码，发现在ToLua/Core/LuaFileUtils.cs中，读取bundle中的文件的函数是这样写的：&lt;/p&gt;
 &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;2&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;3&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;4&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;5&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;6&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;7&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;8&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;9&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;10&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;11&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;12&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;13&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;14&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;15&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;16&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;17&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;18&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;19&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;20&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;21&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;22&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;23&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;24&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;25&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;26&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;27&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;28&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;29&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;30&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;31&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;32&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;33&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;keyword&quot;&gt;byte&lt;/span&gt;[] ReadZipFile(&lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt; fileName)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ……&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (pos &amp;gt; &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        zipName = fileName.Substring(&lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;, pos);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        zipName = zipName.Replace(&lt;span class=&quot;string&quot;&gt;&#39;/&#39;&lt;/span&gt;, &lt;span class=&quot;string&quot;&gt;&#39;_&#39;&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        zipName = &lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;.Format(&lt;span class=&quot;string&quot;&gt;&quot;Lua_&amp;#123;0&amp;#125;&quot;&lt;/span&gt;, zipName);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;        fileName = fileName.Substring(pos + &lt;span class=&quot;number&quot;&gt;1&lt;/span&gt;);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	zipMap.TryGetValue(zipName.ToLower(), &lt;span class=&quot;keyword&quot;&gt;out&lt;/span&gt; zipFile);        &lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (zipFile != &lt;span class=&quot;keyword&quot;&gt;null&lt;/span&gt;)&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;if&lt;/span&gt; UNITY_5&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	    &lt;span class=&quot;keyword&quot;&gt;string&lt;/span&gt;[] names = zipFile.GetAllAssetNames();&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	    &lt;span class=&quot;keyword&quot;&gt;for&lt;/span&gt; (&lt;span class=&quot;keyword&quot;&gt;int&lt;/span&gt; i = &lt;span class=&quot;number&quot;&gt;0&lt;/span&gt;; i &amp;lt; names.Length; i++) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &lt;span class=&quot;keyword&quot;&gt;if&lt;/span&gt; (names[i].EndsWith(fileName.ToLower() + &lt;span class=&quot;string&quot;&gt;&quot;.bytes&quot;&lt;/span&gt;)) &amp;#123;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            fileName = names[i];&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	            &lt;span class=&quot;keyword&quot;&gt;break&lt;/span&gt;;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	        &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;	    &amp;#125;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;		TextAsset luaCode = zipFile.LoadAsset&amp;lt;TextAsset&amp;gt;(fileName);&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;else&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    	TextAsset luaCode = zipFile.Load(fileName, &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt;(TextAsset)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; TextAsset;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;span class=&quot;meta&quot;&gt;#&lt;span class=&quot;meta-keyword&quot;&gt;endif&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    ……&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;    &lt;span class=&quot;keyword&quot;&gt;return&lt;/span&gt; buffer;&lt;/span&gt;&lt;br&gt;&lt;span class=&quot;line&quot;&gt;&amp;#125;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
@@ -441,7 +441,8 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;问题简述&quot;&gt;&lt;a href=&quot;#问题简述&quot; class=&quot;headerlink&quot; title=&quot;问题简述&quot;&gt;&lt;/a&gt;问题简述&lt;/h2&gt;&lt;p&gt;在使用ToLua的LuaFramework作为代码热更框架，进行AssetBundle打包的时候，有时会莫名其妙出现Lua文
+      &lt;p&gt;在使用ToLua的LuaFramework作为代码热更框架，进行AssetBundle打包的时候，有时会莫名其妙出现Lua文件读不出来的问题，即require了某个Lua文件，且文件确实存在，却报出该文件的全局变量为nil的error。&lt;/p&gt;
+&lt;h2 id=&quot;问题分析&quot;&gt;
     
     </summary>
     
@@ -461,12 +462,12 @@
     <link href="http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Modify-Prefabs-by-Scripts/"/>
     <id>http://chenyuxiaodhr.github.io/zh-CN/Unity3D/Unity-Modify-Prefabs-by-Scripts/</id>
     <published>2016-11-03T14:17:16.000Z</published>
-    <updated>2016-11-03T14:36:56.000Z</updated>
+    <updated>2017-03-28T08:50:41.000Z</updated>
     
-    <content type="html">&lt;p&gt;获取prefab&lt;/p&gt;
+    <content type="html">&lt;p&gt;首先，获取prefab对象&lt;/p&gt;
 &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;GameObject go = AssetDatabase.LoadAssetAtPath(filePath, &lt;span class=&quot;keyword&quot;&gt;typeof&lt;/span&gt;(GameObject)) &lt;span class=&quot;keyword&quot;&gt;as&lt;/span&gt; GameObject;&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;对GameObject修改属性就可以了。&lt;/p&gt;
-&lt;p&gt;最后一定要加上&lt;/p&gt;
+&lt;p&gt;然后，对GameObject修改属性就可以了。&lt;/p&gt;
+&lt;p&gt;最后，一定要加上&lt;/p&gt;
 &lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;EditorUtility.SetDirty(go);&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
 &lt;p&gt;否则修改后的prefab无法保存。&lt;/p&gt;
 &lt;h2 id=&quot;拓展知识&quot;&gt;&lt;a href=&quot;#拓展知识&quot; class=&quot;headerlink&quot; title=&quot;拓展知识&quot;&gt;&lt;/a&gt;拓展知识&lt;/h2&gt;&lt;p&gt;&lt;code&gt;EditorUtility.SetDirty&lt;/code&gt;在Unity5.3之前是标记对象&lt;strong&gt;被修改（Dirty）&lt;/strong&gt;的主要方法。但从5.3开始，随着多场景编辑（Multi-Scene Editing）的引入，此函数不应再用于修改场景中的对象。&lt;/p&gt;
@@ -485,8 +486,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;获取prefab&lt;/p&gt;
-&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;
+      &lt;p&gt;首先，获取prefab对象&lt;/p&gt;
+&lt;figure class=&quot;highlight cs&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;co
     
     </summary>
     
@@ -504,9 +505,9 @@
     <link href="http://chenyuxiaodhr.github.io/zh-CN/Game-Development/Finite-State-Machine-in-Game-Development/"/>
     <id>http://chenyuxiaodhr.github.io/zh-CN/Game-Development/Finite-State-Machine-in-Game-Development/</id>
     <published>2016-03-15T13:46:53.000Z</published>
-    <updated>2017-03-28T08:31:34.000Z</updated>
+    <updated>2017-03-28T08:47:16.000Z</updated>
     
-    <content type="html">&lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG游戏挂机AI的实现为案例，讲述状态机的概念及其写法。&lt;/p&gt;
+    <content type="html">&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG游戏挂机AI的实现为案例，讲述状态机的概念及其写法。&lt;/p&gt;
 &lt;p&gt;本文分为以下部分：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;有限状态机（finite-state machine）&lt;/strong&gt;：对状态机一些概念的解释。&lt;/li&gt;
@@ -653,7 +654,10 @@
     
     <summary type="html">
     
-      &lt;h2 id=&quot;引言&quot;&gt;&lt;a href=&quot;#引言&quot; class=&quot;headerlink&quot; title=&quot;引言&quot;&gt;&lt;/a&gt;引言&lt;/h2&gt;&lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG
+      &lt;p&gt;你是否还在面对乱作一团的代码束手无策？你是否仍然觉得复杂的逻辑无从下手？你是否觉得游戏AI高端得毫无头绪？本文将以一个复杂的弹窗逻辑和RPG游戏挂机AI的实现为案例，讲述状态机的概念及其写法。&lt;/p&gt;
+&lt;p&gt;本文分为以下部分：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;有限
     
     </summary>
     
