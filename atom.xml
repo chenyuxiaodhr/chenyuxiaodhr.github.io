@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://chenyuxiaodhr.github.io/"/>
-  <updated>2017-03-28T08:37:02.000Z</updated>
+  <updated>2017-03-28T08:45:00.000Z</updated>
   <id>http://chenyuxiaodhr.github.io/</id>
   
   <author>
@@ -20,11 +20,11 @@
     <link href="http://chenyuxiaodhr.github.io/zh-CN/CS-Learning/MIT-Challenge/"/>
     <id>http://chenyuxiaodhr.github.io/zh-CN/CS-Learning/MIT-Challenge/</id>
     <published>2017-03-28T08:16:07.000Z</published>
-    <updated>2017-03-28T08:37:02.000Z</updated>
+    <updated>2017-03-28T08:45:00.000Z</updated>
     
     <content type="html">&lt;p&gt;译者注：本文译自&lt;a href=&quot;https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;Scott H. Young的博客&lt;/a&gt;，Scott拥有超强的学习能力，曾在12个月内自学完成麻省理工学院计算机科学的33门课程。本文就是他个人对于这次MIT挑战的介绍和总结。&lt;/p&gt;
 &lt;p&gt;版权声明：本次翻译已经得到Scott本人授权，禁止任何形式的转载。&lt;/p&gt;
-&lt;p&gt;–&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;在接下来的12个月里，我将在&lt;strong&gt;不去上课&lt;/strong&gt;的情况下，学完整个MIT四年分的计算机课程。&lt;/p&gt;
 &lt;p&gt;更新：MIT挑战现在已经结束了。我在2012年9月26日完成了挑战，距离开始时间2011年10月1日刚好12个月。下面将列出我所有课程的考试、官方解法以及我写的代码的链接。&lt;/p&gt;
 &lt;p&gt;回答一些普遍的问题：&lt;/p&gt;
@@ -402,7 +402,7 @@
 &lt;p&gt;  还有一点就是我在2011年七月就上了第一门课，8.01经典力学，作为预测试课程。因此我在这12个月内实际学习的课程数是32门课。&lt;/p&gt;
 &lt;p&gt;  Q）我是博客主/记者，如何跟你联系，分享故事？&lt;/p&gt;
 &lt;p&gt;  通过邮箱challenge@scotthyoung.com，或者通过&lt;a href=&quot;https://www.scotthyoung.com/blog-new-new/about-and-contact-info/&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;这里的表格&lt;/a&gt;。接下来我会变得很忙（显而易见），所以很抱歉我在短期内不能很迅速地查看邮件。我在学习一门课程时通常不在线。&lt;/p&gt;
-&lt;p&gt;  –&lt;/p&gt;
+&lt;hr&gt;
 &lt;p&gt;  长按下方二维码关注公众号&lt;/p&gt;
 &lt;p&gt;  &lt;img src=&quot;./qrcode.jpg&quot; alt=&quot;&quot;&gt;&lt;/p&gt;
 </content>
