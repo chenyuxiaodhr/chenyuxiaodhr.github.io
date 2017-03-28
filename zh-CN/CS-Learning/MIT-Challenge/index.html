@@ -1,0 +1,398 @@
+<!DOCTYPE html><html lang="en,zh-CN,default"><head><meta http-equiv="content-type" content="text/html; charset=utf-8"><meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"><meta content="yes" name="apple-mobile-web-app-capable"><meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"><meta content="telephone=no" name="format-detection"><meta name="description"><title>MIT挑战（如何在12个月内自学完成MIT计算机科学的33门课程|内附MIT公开课程资源和学习顺序） | CdiajadeX's world</title><link rel="stylesheet" type="text/css" href="/css/style.css?v=0.0.0"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/normalize/3.0.3/normalize.min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/pure-min.css"><link rel="stylesheet" type="text/css" href="//cdn.bootcss.com/pure/0.6.0/grids-responsive-min.css"><link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.min.css"><script type="text/javascript" src="//cdn.bootcss.com/jquery/2.2.1/jquery.min.js"></script><script src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js" async></script><link rel="Shortcut Icon" type="image/x-icon" href="/favicon.ico"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="apple-touch-icon-precomposed" href="/apple-touch-icon.png"><link rel="alternate" type="application/atom+xml" href="/atom.xml"></head><body><div class="body_container"><div id="header"><div class="site-name"><h1 class="hidden">MIT挑战（如何在12个月内自学完成MIT计算机科学的33门课程|内附MIT公开课程资源和学习顺序）</h1><a id="logo" href="/.">CdiajadeX's world</a><p class="description">way to my glory</p></div><div id="nav-menu"><a href="/." class="current"><i class="fa fa-home"> 首页</i></a><a href="/archives/"><i class="fa fa-archive"> 归档</i></a><a href="/about/"><i class="fa fa-user"> 关于</i></a><a href="/atom.xml"><i class="fa fa-rss"> 订阅</i></a></div></div><div id="layout" class="pure-g"><div class="pure-u-1 pure-u-md-3-4"><div class="content_container"><div class="post"><h1 class="post-title">MIT挑战（如何在12个月内自学完成MIT计算机科学的33门课程|内附MIT公开课程资源和学习顺序）</h1><div class="post-meta">Mar 28, 2017<span> | </span><span class="category"><a href="/categories/CS-Learning/">CS Learning</a></span><span id="busuanzi_container_page_pv"> | <span id="busuanzi_value_page_pv"></span><span> Hits</span></span></div><a data-disqus-identifier="zh-CN/CS-Learning/MIT-Challenge/" href="/zh-CN/CS-Learning/MIT-Challenge/#disqus_thread" class="disqus-comment-count"></a><div class="post-content"><p>译者注：本文译自<a href="https://www.scotthyoung.com/blog/myprojects/mit-challenge-2/" target="_blank" rel="external">Scott H. Young的博客</a>，Scott拥有超强的学习能力，曾在12个月内自学完成麻省理工学院计算机科学的33门课程。本文就是他个人对于这次MIT挑战的介绍和总结。</p>
+<p>版权声明：本次翻译已经得到Scott本人授权，禁止任何形式的转载。</p>
+<p>–</p>
+<p>在接下来的12个月里，我将在<strong>不去上课</strong>的情况下，学完整个MIT四年分的计算机课程。</p>
+<p>更新：MIT挑战现在已经结束了。我在2012年9月26日完成了挑战，距离开始时间2011年10月1日刚好12个月。下面将列出我所有课程的考试、官方解法以及我写的代码的链接。</p>
+<p>回答一些普遍的问题：</p>
+<ol>
+<li>我花了多少功夫来完成这次挑战？一开始差不多每周60个小时，到后来就是35小时左右。</li>
+<li>你拿到MIT的学位了吗？没有。看上面的视频就知道我完成这次无学分学习的动机。</li>
+<li>你是否做了所有MIT学生做的事情？没有。我考试和编程项目的总课程很类似MIT列出的课程，有些实验课和人文学科我不得不改成了其他科目，但是总学时是一样的。这是<a href="http://catalog.mit.edu/degree-charts/computer-science-engineering-course-6-3/" target="_blank" rel="external">MIT计算机科学的课程表</a>，可以跟我下面列出的课程做对照。（提示：这个链接已经更新过了，旧的链接挂了。我并没有检查课表有哪些修改。）</li>
+<li>你在学习过程中用了课本或者教学视频吗？所有的资料都在下面列出来了，如果你不确定，可以到下面的列表查看。</li>
+<li>你是按什么顺序来上这些课的？就是下面列出来的顺序，除了一些同时上的课程。当然，如果你按照这个顺序来上课，你就不用担心某些被依赖课程会被安排到后面。</li>
+<li>你是不是自己给考试评分的？是的。诚然，没有教授评分在一定程度上会有误差，但是大多数考试都是量化的问题，这些问题的答案都是有规律的，因此误差没那么大。我建议每个人都去检查一下我真正的考试回答，并跟官方提供的答案作对比。</li>
+<li>你是否相信人们应该不去上大学，而是做这个项目？当然不是。我上过大学，我并不后悔。我做这个项目的是想看看获得一次教育的时长、代价和常规性的预期能被压缩到多低。</li>
+</ol>
+<p>计算机总是令我神魂颠倒。从金融到社交，算法是构成人们生活大部分方面的隐藏语言。当今世界最大的变化就是由代码编写而成的人工智能事业的发展让我们能够通过计算机了解作为人类的意义。</p>
+<p>除了机器的诗意，计算机科学也是非常实践性的。财富被积累了，变革的火星在行行代码中闪耀。</p>
+<p>我总想掌握计算机语言，但是我并不想投入4年以及数十万没金来学习。</p>
+<p>我开启这项实验是因为我想告诉大家，完成一门学业，并不像有些人认为的那样，需要通过录取委员会和SAT考试，背负数千美元的债务，甚至耗费四年来慢慢学习。</p>
+<p>我会失败吗？当然有可能，这个世上许多比我聪明的人仍在类似MIT的地方挣扎于巨大的工作量之中。我还企图在没有人指导的情况下按四倍速来学习同样的内容。</p>
+<p>我会跟大家分享我在这一过程中的收获，这是我唯一能保证的。下面列出了我将学习的33门课程，每门课我都会做期终考试，诸位可以拿我的回答跟MIT官方的答案做对比。我也会把我的错误发布出来，大家不用怀疑我会把我的错误答案删除。</p>
+<h2 id="MIT挑战之后的更新"><a href="#MIT挑战之后的更新" class="headerlink" title="MIT挑战之后的更新"></a>MIT挑战之后的更新</h2><p>由于我已经完成了这次挑战，我会在这里更新我上过的计算机科学相关的课程或者编写的相关程序。</p>
+<ul>
+<li><a href="https://www.scotthyoung.com/blog/wordsmith-download/" target="_blank" rel="external">WordSmith</a> 这是我写的开源免费的拼字游戏的AI。</li>
+</ul>
+<h2 id="学习进度"><a href="#学习进度" class="headerlink" title="学习进度"></a>学习进度</h2><ol>
+<li>8.01 物理1-经典力学<ul>
+<li>我在七月份完成了这门课，这是一次预实验，用来检查我是不是准备好进行这次挑战了。这门课程很精彩，Walter Lewin教授在不遗漏知识点的情况下把物理讲得栩栩如生。提示：这门课已经被MIT删除了，大家可以去看<a href="https://ocw.mit.edu/courses/physics/8-01-physics-i-fall-2003/" target="_blank" rel="external">另一个版本</a> 。分数：5/5。<ol>
+<li><del>免费课程资料</del></li>
+<li><a href="https://www.scotthyoung.com/mit/801-notes.pdf" target="_blank" rel="external">基于费曼学习方法的笔记</a></li>
+<li><a href="http://bit.ly/oG2Yhh" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://bit.ly/n8oa8f" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>18.01 一元微积分<ul>
+<li>这是我在MIT挑战中完成的第一门官方课程。紧凑的课程视频给了我良好的基础微积分的认知，展示了从基础的极限到高级积分法的知识。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1801-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/mathematics/18-01-single-variable-calculus-fall-2006/exams/prfinalsol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>18.02 多元微积分<ul>
+<li>这门课把一元积分的基本规则拓展到了多维层面。对于理解电、磁、光等3D相关的物体很有帮助。分数：4/5。<ol>
+<li><a href="https://ocw.mit.edu/courses/mathematics/18-02-multivariable-calculus-fall-2007/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1802-notes.jpg" target="_blank" rel="external">我的笔记</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1802-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1802-solutions.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>8.02 物理2-电磁学<ul>
+<li>又一门Walter Lewin教授的物理课，示范实验非常棒。这门课对于专业细节非常严谨，同时也很贴近生活，每天讨论像彩虹和金属探测器这样的概念。提示：这门课也被MIT删除了，<a href="http://ocw.mit.edu/courses/physics/8-02-physics-ii-electricity-and-magnetism-spring-2007/" target="_blank" rel="external">替代版本</a>。分数：5/5。<ol>
+<li><del>免费课程资料</del></li>
+<li><a href="https://www.scotthyoung.com/mit/802-notes.pdf" target="_blank" rel="external">基于费曼学习方法的笔记</a>（巨大的pdf）</li>
+<li><a href="https://www.scotthyoung.com/mit/802-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/physics/8-02-electricity-and-magnetism-spring-2002/exams/finalsol4.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.01 电子工程和计算机科学导论1<ul>
+<li>这是一门很好的课程，但是由于这门课直接从面向对象入手，并且很少解释相关内容，我并不建议没有编程背景的人上这门课。我很享受核心课程里人工智能和状态机的高级概念的混合。这门课的课程讲义很棒，并且是免费的，但是里面内容的重点是机器人学，涉及到许多我接触不到的专业设备。（注：很多人指出，我期末考试的回答写的并不全面，你可以在这里读到我<a href="https://www.scotthyoung.com/blog-new-new/2011/12/18/two-types-of-advice/comment-page-1/#comment-1258218" target="_blank" rel="external">深入的回答</a>)提示：这门课已经被MIT调换了，这是<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01sc-introduction-to-electrical-engineering-and-computer-science-i-spring-2011/" target="_blank" rel="external">新的课程</a>。分数：4/5。<ol>
+<li><del>免费课程资料</del></li>
+<li><a href="https://www.scotthyoung.com/mit/601-code.zip" target="_blank" rel="external">下载代码</a><ul>
+<li>工程：状态机库</li>
+<li>工程：贝叶斯状态预测器</li>
+<li>工程：A*寻路算法</li>
+</ul>
+</li>
+<li><a href="https://www.scotthyoung.com/mit/601-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-01-introduction-to-electrical-engineering-and-computer-science-i-fall-2009/exams/MIT6_01F09_final_prob_sol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<ol>
+<li>5.111 基础化学<ul>
+<li>介绍了量子化学、路易士电子点图、酸碱和氧化还原反应，还包括了高级的过度金属和晶体场理论的知识。不幸的是，这门课并没有可行的期末考试，我不得不用期中的练习来评估自己。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/index.htm" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/5111-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/chemistry/5-111-principles-of-chemical-science-fall-2008/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>7.012 生物学导论<ul>
+<li>非常棒的生物课，这门课从实验者的角度阐述了生物化学、免疫学、基因学和生态学的基础知识。课本也是个很好的补充，展示了发现者的思维模式。<ol>
+<li><a href="http://ocw.mit.edu/courses/biology/7-014-introductory-biology-spring-2005/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/7014-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/biology/7-014-introductory-biology-spring-2005/exams/final_handout.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>18.03 微分方程<ul>
+<li>微积分的扩展。微分方程让你能够对复杂系统建模和分析。微分方程对于电子工程学很重要，对于理解电路、信号和系统有帮助。课程相关的视频讲座严重偏离了课程的内容，导致我浪费了不少时间。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1803-exam.pdf" target="_blank" rel="external">我的考试结果</a>，<a href="http://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/exams/MIT18_03S10_prfinal.pdf" target="_blank" rel="external">问题</a></li>
+<li><a href="http://ocw.mit.edu/courses/mathematics/18-03-differential-equations-spring-2010/exams/MIT18_03S10_prfinals.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.02 电子工程和计算机科学导论2<ul>
+<li>这门课比较难上，因为MIT的开源课程平台没有包含这门课。学习这门课意味着我要筛选MIT的公共文档，从其最深处找出课程讲义和考试。后果就是其中一个重要的章节——滤波器设计——完全遗失了，我无法完成相关的实验和考试。这门课也没有期末考试，我把三次期中考试的成绩合起来整体做了课程评分。分数：3/5。<ol>
+<li><a href="http://web.mit.edu/6.02/www/s2009/" target="_blank" rel="external">课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/602-labs.zip" target="_blank" rel="external">实验作业（非常大）</a>，<a href="http://web.mit.edu/6.02/www/s2009/handouts.html#labs" target="_blank" rel="external">作业指导</a></li>
+<li><a href="https://www.scotthyoung.com/mit/602-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="https://www.scotthyoung.com/mit/602-solutions.zip" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.042J 计算机数学<ul>
+<li>图论、数论、证明、概率论、计算只是这门妙到毫巅的课程的一小部分。这门课的视频课程不多，但是免费的课本非常引人入胜。练习和挑战的资源倒是很丰富。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-spring-2010/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6042J-exam.pdf" target="_blank" rel="external">我的考试结果</a>，<a href="https://www.scotthyoung.com/mit/6042J-notes.pdf" target="_blank" rel="external">我的笔记</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-042j-mathematics-for-computer-science-fall-2005/exams/finalsol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.006 算法简介<ul>
+<li>算法和复杂理论的介绍。这门课提供了把算法设计概念（动态规划、贪心算法等）应用到实际编程中的机会，弥补了6.042J课程的缺失。不幸的是，在完成期末考试之前我没能发现试卷内容的不全的，所以我把我做的小测验包含了进来。我完成了大部分作业，但是没有答案，所以我没有对它们评分。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-spring-2008/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6006-exam.pdf" target="_blank" rel="external">期末考试</a>，<a href="https://www.scotthyoung.com/mit/6006-quiz.pdf" target="_blank" rel="external">小测验</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6006-pset.pdf" target="_blank" rel="external">习题集</a>，<a href="https://www.scotthyoung.com/mit/6006-code.zip" target="_blank" rel="external">我的代码</a>，<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-spring-2008/assignments/" target="_blank" rel="external">MIT的文件和问题</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-006-introduction-to-algorithms-spring-2008/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>18.06 线性代数<ul>
+<li>完美的授课视频和丰富的课程材料使这门课程变成MIT公开课程平台上最容易理解的一门课。Gilbert Strang教授给予了流畅易懂的讲解。我第一次考试正确率只有56%，所以我又花了一天完成了一份分数高一点的回答。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/mathematics/18-06-linear-algebra-spring-2010/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1806-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://web.mit.edu/18.06/www/Spring98/Solns/final-solu-98.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.041 概率系统分析<ul>
+<li>概率论的一门课，这门课用微积分来解决比6.042J更加复杂的概率论问题。这门课的课本是专门为课程而设计的，所以非常有帮助。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-spring-2006/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6041-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-041-probabilistic-systems-analysis-and-applied-probability-spring-2006/exams/final_sol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.002 电路与电子学<ul>
+<li>这门课包含了数字电路和模拟电路的基本原理。考试很有难度，评分的是我超时的第一次考试。不幸的是，这门课的官方答案是MIT不公开的内容，所以我没法提供链接。这门课是许多电子工程科目的基础课程，所以我很确定其核心概念以后的考试中会碰到很多次。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-002-circuits-and-electronics-spring-2007/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6002-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.046J 算法的设计与分析<ul>
+<li>这么久以来我最喜欢的课程之一！这门课给出了比6.006更高级的算法概念，例如证明特定的问题的NP完备性、近似算法、加密算法、亚线性算法和并行处理。我还是得小心应对，因为开源课程平台的这门课早于6.006被添加进MIT的课程列表，这门公开课比当前课表的版本容易很多。分数：5/5。<ol>
+<li><a href="http://courses.csail.mit.edu/6.046/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6046J-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://stellar.mit.edu/S/course/6/fa11/6.046/courseMaterial/topics/topic3/exam/final_fall09_solutions/final_fall09_solutions.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.304 人工智能<ul>
+<li>很棒的课程，涵盖了多种不同的AI技术的调研，包括搜索、约束传播、神经网络、核机器（kernel machines）、概念学习和自然语言处理。我完成了六次作业，并为此先学习了编程语言Scheme。考试的难点之一在于这门课的教学大纲非常丰富，包含了多种技术，每节课的侧重点也各有不同。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-034-artificial-intelligence-fall-2010/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6034-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6034-code.zip" target="_blank" rel="external">我的作业</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6034-exam-sol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.003 信号与系统<ul>
+<li>这门课讲了信号与系统分析的基本原理，扩展了18.03初次讨论的数学技术。这门课不仅对电路有用，而且对于理解调频、音频过滤、降噪甚至包括图像分析和处理的基本原理有很大的帮助。这也是我挂掉的第一门课，还好在第二次尝试时我把正确率提高到69%。提示：这门课已经不可用了，<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-003-signals-and-systems-fall-2011/" target="_blank" rel="external">替代版本</a>。分数：4/5。<ol>
+<li><del>免费课程资料</del></li>
+<li><a href="https://www.scotthyoung.com/mit/6003-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-003-signals-and-systems-spring-2010/exams/MIT6_003S10_final_F07_sol.pdf" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.004 计算结构<ul>
+<li>电子工程和计算机科学的交叉课程。设计项目包含了门级CPU的规范，这是用来搭建计算机的电子元件。这门课的缺点是缺少相关的课程材料，但是作业和实验很给力。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-004-computation-structures-spring-2009/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6004-code.zip" target="_blank" rel="external">实验和工程</a>（注：运行这些文件需要BSim和JSim，都可以在课程页面免费下载）</li>
+<li><a href="https://www.scotthyoung.com/mit/6004-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://6004.csail.mit.edu/currentsemester/OldQuizzes/quizzes.html" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>24.241 逻辑学1<ul>
+<li>命题演算和谓词演算入门及其衍生系统和理论的证明。我发现这门课很枯燥，很理论性，但它确实提供了严密的论证方法的练习，不像计算机科学的课程那样随意。坏消息是，考试答案是非公开的，我不能在这里发布。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/linguistics-and-philosophy/24-241-logic-i-fall-2009/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/24241-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>14.01 微观经济学原理<ul>
+<li>我在获取商学院学位时就上过微观经济学的课程，所以这门课对我来说主要目的是回顾。MIT比我的母校拥有更强的数学基础，因此看到许多概念的严谨科学的定义对我来说也是耳目一新。我花了短短四天来学习这门课，所以考试中大部分错误源于对未提供的专业定义和公式的遗忘。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/economics/14-01-principles-of-microeconomics-fall-2007/index.htm" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1401-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/economics/14-01-principles-of-microeconomics-fall-2007/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.003 计算机系统工程<ul>
+<li>非常有用的课程，讲述了计算机网络、加密、客户端/服务器架构和互联网的基本原理。我发现有几节课跟6.004和6.02重复了，但还是很有用。我在读作业的时候不够专注，它们包含了海量的知识。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2009/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6033-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-033-computer-system-engineering-spring-2009/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.013 电磁学及应用<ul>
+<li>毫无疑问，这是至此以来最难的一门课程。这门课大量使用了矢量计算、变换式和复数计法，拓展了8.02电磁学课程中的基本原理。如果你想尝试这门课，先去学习基础课程6.003、6.002、18.02、18.03和8.02是不错的选择。我险之又险地通过了这门课，所以这门课绝对是我未来会温故而知新的内容，其中包含了不少有趣的想法。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-013-electromagnetics-and-applications-spring-2009/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6013-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-013-electromagnetics-and-applications-spring-2009/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>14.02 宏观经济学原理<ul>
+<li>本科的时候我也学了宏观经济学，所以这节课也是回顾。尽管如此，我觉得MIT的课程和教材更加易懂。如果你想对经济学有个整体的了解，这是不错的选择。提示：MIT更换了这节课，<a href="http://ocw.mit.edu/courses/economics/14-02-principles-of-macroeconomics-spring-2014/" target="_blank" rel="external">新的版本</a>分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/economics/14-02-principles-of-macroeconomics-fall-2009/index.htm" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1402-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/economics/14-02-principles-of-macroeconomics-fall-2009/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>24.242 逻辑学2<ul>
+<li>这门课完全基于8次家庭作业，所以我经历的大量测试材料都比其他课程要弱。尽管如此，我还是喜爱这门课，因为哥德尔不完备定理是我见过的最深刻的思想。分数：5/5。<ol>
+<li><a href="http://courses.csail.mit.edu/6.046/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/24242-work.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/linguistics-and-philosophy/24-242-logic-ii-spring-2004/assignments/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.011 通讯、控制和信号入门<ul>
+<li>6.003，信号与系统课程的拓展。这门课把信号分析和过滤拓展成状态图和随机信号。随机信号的引入对于处理噪音非常有用，所以许多6.003里理想化的概念变得更加切实可行。免费的课本和讲义非常有用。分数：4/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-011-introduction-to-communication-control-and-signal-processing-spring-2010/index.htm" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/24242-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-011-introduction-to-communication-control-and-signal-processing-spring-2010/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>24.244 模态逻辑<ul>
+<li>模态逻辑是可能性和必然性的逻辑，扩展了基本的谓词演算。这是一项很有趣的逻辑，取决于采用的公理（道义、真势模态、时态等等），可以表现成不同的逻辑系统。期末考试是课外开卷考试，所以我花了两天时间完成了它。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/linguistics-and-philosophy/24-244-modal-logic-fall-2009/index.htm" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/24244-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/linguistics-and-philosophy/24-244-modal-logic-fall-2009/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>14.20 产业组织学<ul>
+<li>经济学课程，通过假设完全竞争或垄断来简化分析。这门课移除了商行如何从战略上跟另一家商行竞争的设想和考虑。这门课完全点燃了我学习博弈论的兴趣。不幸的是，我没意识到期末考试的内容受限于课程内容，我只能尽力而为。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/economics/14-20-industrial-organization-and-public-policy-spring-2003/readings/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1420-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/economics/14-20-industrial-organization-and-public-policy-spring-2003/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>14.23 政府的产业条例<ul>
+<li>这门课的内容和14.20很像，但是这门课侧重于历史背景和政治格局，而不是博弈论。有趣的课程，课本阅读的部分相当冗长（近900页），但是数学分析的水平较低，所以还是比较易读的。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/economics/14-23-government-regulation-of-industry-spring-2003/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1423-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/economics/14-23-government-regulation-of-industry-spring-2003/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>14.48J 教育经济学<ul>
+<li>鉴于我挑战本身的性质，这门课非常有趣，揭示了多种教育理论。大多数课程感觉更像是基础的计量经济学的讨论，因为很多核心思想都是没有结论的（更小的课程更好吗？折扣券方案可行吗？）。这门课也讲述了教育的标准人力资本理论和信号效果理论的不同。但是，仍然没有定论。分数：3/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/urban-studies-and-planning/11-126j-economics-of-education-spring-2007/syllabus/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/1448J-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/urban-studies-and-planning/11-126j-economics-of-education-spring-2007/exams/" target="_blank" rel="external">MIT官方答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.005 软件构建基础<ul>
+<li>这是MIT规定的软件开发课程。这门课挺难的，不是因为有什么智力要求，而是因为工作量繁重。这门课由3个团队项目，3个个人项目以及一些实验课组成。我当时很犹豫要不要上这门课，因为这次挑战的时间有限，很难上这样的课。但是最终我发现，最简单的方式就是做完所有的事情。</li>
+<li>我花了大概三周的时间成功上完这门课，零零散散耗费了两个月。虽然很费时，但是这门课是最有回报的课程。我本想在每个项目上花费更多的时间补充更多特性，特别是最后的那个用Scratch做的即时通讯应用。如果你在编程方面刚入门，想学习高级的设计思想，写出优秀的代码而不是能够运行的代码，这门课是很棒的选择。</li>
+<li>我把我写的所有的项目都发布在这里，需要安装Java环境才能运行。我也把我做的三个设计项目上传了（扫描之后清晰度降低了，很抱歉！）。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-005-elements-of-software-construction-fall-2008/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6005-code.zip" target="_blank" rel="external">所有的代码</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6005-work.pdf" target="_blank" rel="external">三个设计项目</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6005-work.pdf" target="_blank" rel="external">MIT提供的资料和作业</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.801 计算机视觉<ul>
+<li>这门课讲述如何用算法去看，主要的背景就是通过看到的图像指导机器人运作。包括二进制图像处理、边缘检测、高斯扩展表面、方向、摄影测量等主题。这门课由两次课外考试来评分，并且是由两门研究生级别的课程合成的一门课。</li>
+<li>总之，这门课很有挑战性，使用了傅里叶分析、矢量计算、线性代数、二次规划算法以及变分法等技术方法，所以这门课大概是应用数学相关最难的一门课了。很可惜没有编程的作业，不然一定会很有趣。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-801-machine-vision-fall-2004/lecture-notes/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6801-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-801-machine-vision-fall-2004/exams/" target="_blank" rel="external">MIT官方答案（和问题）</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>6.837 计算机图形学<ul>
+<li>这门课讲述了计算机图形学的基本原理，主要讲了射线追踪，当然扫描线方法也讲了。这门课基本由作业来评分（本来有两次小考的，但是没有提供答案，所以没用它们来计分）。从简单的光线投射和平面着色开始，作业逐渐包含了毛面着色、反射模糊、投射阴影、带有折射指数的透明表面、镜面反射以及过程贴图。一个网格加速数据结构的过程也完成了，它没有任何视觉效果，却大大加快了相对缓慢的射线的图像路径。</li>
+<li>具体的编程环境写在了代码的README.rtf文件里。文件比较大，包含了渲染出的图片，这样不用运行代码就能看到问题需求的输出了。（作为对比，MIT的官方输出在sample_res.pdf里）。提示：我之前上的课被替换了，<a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-837-computer-graphics-fall-2012/" target="_blank" rel="external">新的版本</a>。分数：5/5。<ol>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-837-computer-graphics-fall-2003/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/6837-code.zip" target="_blank" rel="external">我的代码</a></li>
+<li><a href="http://ocw.mit.edu/courses/electrical-engineering-and-computer-science/6-837-computer-graphics-fall-2003/assignments/" target="_blank" rel="external">MIT提供的代码（以及示例答案</a></li>
+</ol>
+</li>
+</ul>
+</li>
+<li>COSC 545 计算理论<ul>
+<li>这门课不是MIT的课程，而是乔治城大学Cal Newport教授的计算理论的研究生课程。在享受完MIT的两门算法课之后，这是我非常想学习的主题，但是MIT复杂的理论课程缺乏任何可用的评分工具。这门课很有趣的思想就是哪些问题可以被算法解决（这意味着处理任何形式的问题都有一个过程），以及处理确定类型的问题所需的速度和内存限制。</li>
+<li>这门课还包含了对于NP问题（P=NP?）的宽泛讨论。这是数学界最重要且悬而未决的问题，其答案会对整个社会产生巨大的影响。尽管已经研究了数十年，以及100万美金的激励，这个问题仍然没能有答案。分数：5/5。<ol>
+<li><a href="http://cs.georgetown.edu/~cnewport/teaching/cosc545-spring12/" target="_blank" rel="external">免费课程资料</a></li>
+<li><a href="https://www.scotthyoung.com/mit/COSC-exam.pdf" target="_blank" rel="external">我的考试结果</a></li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="MIT挑战的常问问题"><a href="#MIT挑战的常问问题" class="headerlink" title="  MIT挑战的常问问题"></a>  MIT挑战的常问问题</h2><p>  Q）你遵守了哪些规则？</p>
+<p>  因为我不是MIT的学生（也不隶属于MIT），所以我自己制定了一套公平可行的规则。规则很简单：</p>
+<pre><code>1. 我完成一门课的标准是通过期末考试（一般高于50分就可以了，虽然我想拿更高的分数。）
+2. 考试的限制是一样的，不能提前看题目，不能带课程相关的材料，一样的时长限制（默认是三小时）。
+3. 我根据MIT的官方答案给自己打分，我把回答和答案都发布到这里，任何人都可以再次检查我的评分手段。
+</code></pre><p>  记住，这只是我这次挑战的最低要求。对于含有重要的编程部分的课程，我尽可能完成代表性的编程作业。</p>
+<p>  Q）你完成了所有的作业、论文和项目吗？</p>
+<p>  对于数学或者理论课程来说，期末考试是很重要的评分手段。我仍然会做一部分作业和测验来为期末考试做准备。不过由于在这次挑战中我没法维持一个统一的标准（许多课程要么不可用，要么没法评分），我没有很认真地去做它们。</p>
+<p>  对于含有大量编程或实际设计的课程，我尽量去完成最多的作业。但是它们很难做评分，我还是依赖于期末考试。</p>
+<p>  Q）你的课程表和MIT的是否不一样？</p>
+<p>  我花了差不多一个月的时间来拼凑一个MIT计算机科学实际课表的镜像。很可惜我没法完美地完成，因为有些课程（包括实验和研究课）很难评分，另外一些网上没有资源。</p>
+<p>  这次挑战，我课程表的总学时跟MIT的学位学时是一样的，所以当我没法上某一门课的时候，我就换成一门近似的课程。就学习的知识而言，我的课程表跟MIT的课程表很像了。</p>
+<p>  唯一的区别就是MIT的选修课。我也上了不少非计算机科学的课程，来模仿MIT的人文、艺术、社科的要求。因为MIT的线上艺术课程的资料比社科的课程差远了，所以我选的课程跟MIT的课程并不完全匹配。</p>
+<p>  这是<a href="http://web.mit.edu/catalog/degre.engin.ch6.html" target="_blank" rel="external">MIT计算机科学的课表</a>。</p>
+<p>  Q）如果你挂科了，你会怎么做？</p>
+<p>  鉴于我正在做一次尝试，所以我觉得挂科是无法避免的。我的主要要求是通过期末考试，所以如果我挂了，我允许自己过段时间再试一次。</p>
+<p>  对于有多次考试的课程，我的对策就是先挂一次，这样我在后续的课程上会更高效。这跟在大学里很不一样，不及格不再是一种挫折。这就是自学的优势之一。</p>
+<p>  Q）你为什么做这个挑战？你只是爱学习吗？</p>
+<p>  没有人喜欢学习，但是每个人都想变得更聪明。学习，得到更强的洞察力，对于某些主题变得更睿智，这是很有价值的。很遗憾，很多人在经历过很多年惩罚式的教育后，都已经忘记了这一点。</p>
+<p>  我承认，想在12个月内学完四年的内容有些疯狂，或者说傲慢。但是我真正的动机就是希望告诉大家，快速的学习是有可能的，与此同时还能获得更多的快乐。</p>
+<p>  Q）这样做你能获得毕业文凭吗？</p>
+<p>  不能，这就是问题所在。我们社会错误地把知识和文凭等同起来。</p>
+<p>  得到一纸文凭很不错，对于许多工作来说，这是完全必要的。但是这种强烈的等价使得人们忘记了两者之间是有区别的。</p>
+<p>  作为一个作家和生意人，我已经有了自己的事业。我从来没想过去大公司工作，那里的HR可能会审议我匮乏的文凭。对我来说，我学习计算机科学就是想为以后开展新事业或者创业时做准备。</p>
+<p>  我不反对大学。对我来说，大学经历很美好，很有价值，对每个人来说都是这样。我只是希望我给出这样一种选择，那些觉得当下的政策不适合自己的人可以有新路可走。</p>
+<p>  Q）这仅仅是为了通过考试吗？</p>
+<p>  不是，但区别很细微。许多课程基于之前学过的概念，所以我的目标是尽可能地去理解每门课。临时抱佛脚只是一种为了考试死记硬背然后很快遗忘的方法。理解更难，却并不会耗费更多时间（如果每门课都为后一门做好铺垫）。</p>
+<p>  更新：最初的四节课，我同时学三到四门。虽然这导致我在回顾知识上的时间比正常的少很多（一个月而不是一学期），这却提升了重复的好处。</p>
+<p>  最终，因为最初的课程大部分都是在为后续更难的课程打基础，我的理解能力和考试表现都上了一个台阶，这些就是我通过考试的工具。</p>
+<p>  Q）关于计算机科学，你以前有哪些经验？</p>
+<p>  我在高中的时候写了挺多代码的，大多数是创造电脑游戏。另外，我在曼尼托巴大学商学院上学的时候，也上了四年学制的计算机科学课程。所以确实，我之前有编程的经验，在这次挑战中占了优势。话虽如此，我的技能水平可能跟那些去MIT上学的计算机科学的学生相距不远。</p>
+<p>  还有一点就是我在2011年七月就上了第一门课，8.01经典力学，作为预测试课程。因此我在这12个月内实际学习的课程数是32门课。</p>
+<p>  Q）我是博客主/记者，如何跟你联系，分享故事？</p>
+<p>  通过邮箱challenge@scotthyoung.com，或者通过<a href="https://www.scotthyoung.com/blog-new-new/about-and-contact-info/" target="_blank" rel="external">这里的表格</a>。接下来我会变得很忙（显而易见），所以很抱歉我在短期内不能很迅速地查看邮件。我在学习一门课程时通常不在线。</p>
+<p>  –</p>
+<p>  长按下方二维码关注公众号</p>
+<p>  <img src="./qrcode.jpg" alt=""></p>
+</div><script type="text/javascript" src="/js/share.js?v=0.0.0" async></script><a data-url="http://chenyuxiaodhr.github.io/zh-CN/CS-Learning/MIT-Challenge/" data-id="cj0ta5wzo0009o5n94p7r1xeu" class="article-share-link">分享到</a><div class="tags"><a href="/tags/CS-Learning/">CS Learning</a></div><div class="post-nav"><a href="/zh-CN/Unity3D/Unity-Bug-When-Read-Bundle-With-ToLua/" class="next">ToLua读取bundle中文件出错的坑</a></div><div id="disqus_thread"><script>var disqus_shortname = 'cdiajadex';
+var disqus_identifier = 'zh-CN/CS-Learning/MIT-Challenge/';
+var disqus_title = 'MIT挑战（如何在12个月内自学完成MIT计算机科学的33门课程|内附MIT公开课程资源和学习顺序）';
+var disqus_url = 'http://chenyuxiaodhr.github.io/zh-CN/CS-Learning/MIT-Challenge/';
+(function() {
+  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();</script><script id="dsq-count-scr" src="//cdiajadex.disqus.com/count.js" async></script></div></div></div></div><div class="pure-u-1-4"><div id="sidebar"><div class="widget"><form action="//www.google.com/search" method="get" accept-charset="utf-8" target="_blank" class="search-form"><input type="text" name="q" maxlength="20" placeholder="Search"/><input type="hidden" name="sitesearch" value="http://chenyuxiaodhr.github.io"/></form></div><div class="widget"><div class="widget-title"><i class="fa fa-folder-o"> 分类</i></div><ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/CS-Learning/">CS Learning</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Game-Development/">Game Development</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/Unity3D/">Unity3D</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-star-o"> 标签</i></div><div class="tagcloud"><a href="/tags/Game-Development/" style="font-size: 15px;">Game Development</a> <a href="/tags/Finite-State-Machine/" style="font-size: 15px;">Finite State Machine</a> <a href="/tags/Unity3D/" style="font-size: 15px;">Unity3D</a> <a href="/tags/ToLua/" style="font-size: 15px;">ToLua</a> <a href="/tags/CS-Learning/" style="font-size: 15px;">CS Learning</a></div></div><div class="widget"><div class="widget-title"><i class="fa fa-file-o"> 最新文章</i></div><ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/zh-CN/CS-Learning/MIT-Challenge/">MIT挑战（如何在12个月内自学完成MIT计算机科学的33门课程|内附MIT公开课程资源和学习顺序）</a></li><li class="post-list-item"><a class="post-list-link" href="/zh-CN/Unity3D/Unity-Bug-When-Read-Bundle-With-ToLua/">ToLua读取bundle中文件出错的坑</a></li><li class="post-list-item"><a class="post-list-link" href="/zh-CN/Unity3D/Unity-Modify-Prefabs-by-Scripts/">Unity脚本修改prefab</a></li><li class="post-list-item"><a class="post-list-link" href="/zh-CN/Game-Development/Finite-State-Machine-in-Game-Development/">游戏开发之状态机的实现与优化</a></li></ul></div><div class="widget"><div class="widget-title"><i class="fa fa-comment-o"> 最近评论</i></div><script type="text/javascript" src="//cdiajadex.disqus.com/recent_comments_widget.js?num_items=5&amp;hide_avatars=1&amp;avatar_size=32&amp;excerpt_length=20&amp;hide_mods=1"></script></div><div class="widget"><div class="widget-title"><i class="fa fa-external-link"> 友情链接</i></div><ul></ul><a href="http://blog.a0z.me/" title="Alvin" target="_blank">Alvin</a><ul></ul><a href="http://www.neutronest.moe/" title="neutronest" target="_blank">neutronest</a></div></div></div><div class="pure-u-1 pure-u-md-3-4"><div id="footer"><span id="busuanzi_container_site_pv">Total <span id="busuanzi_value_site_pv"></span> hits</span><span id="busuanzi_container_site_uv"> from <span id="busuanzi_value_site_uv"></span> IPs.</span><p> © 2016.<a href="/." rel="nofollow">
+CdiajadeX's world.</a> Powered by<a rel="nofollow" target="_blank" href="https://hexo.io"> Hexo.</a><a rel="nofollow" target="_blank" href="https://github.com/tufu9441/maupassant-hexo"> Theme</a> by<a rel="nofollow" target="_blank" href="https://github.com/pagecho"> Cho.</a></p></div></div></div><a id="rocket" href="#top" class="show"></a><script type="text/javascript" src="/js/totop.js?v=0.0.0" async></script><script type="text/javascript" src="//cdn.bootcss.com/fancybox/2.1.5/jquery.fancybox.pack.js" async></script><script type="text/javascript" src="/js/fancybox.js?v=0.0.0" async></script><link rel="stylesheet" type="text/css" href="/css/jquery.fancybox.css?v=0.0.0"><script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ga('create','UA-75257735-1','auto');ga('send','pageview');
+</script><script type="text/javascript" src="/js/codeblock-resizer.js?v=0.0.0"></script><script type="text/javascript" src="/js/smartresize.js?v=0.0.0"></script></div></body></html>
